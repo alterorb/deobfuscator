@@ -17,7 +17,14 @@ public class TryCatchTransformer implements Transformer {
             List<MethodNode> methods = classNode.methods;
 
             for (MethodNode method : methods) {
-                method.tryCatchBlocks.removeIf(tryCatch -> Objects.equals(tryCatch.type, "java/lang/RuntimeException"));
+
+                method.tryCatchBlocks.removeIf(tryCatch -> {
+                    AbstractInsnNode handlerNext = tryCatch.handler.getNext();
+
+                    return (handlerNext.getOpcode() == Opcodes.INVOKESTATIC && handlerNext.getNext().getOpcode() == Opcodes.ATHROW)
+                            || handlerNext.getOpcode() == Opcodes.ATHROW
+                            || Objects.equals(tryCatch.type, "java/lang/RuntimeException");
+                });
             }
         });
     }

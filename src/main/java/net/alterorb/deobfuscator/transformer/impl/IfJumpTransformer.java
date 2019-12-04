@@ -1,9 +1,9 @@
 package net.alterorb.deobfuscator.transformer.impl;
 
-import jdk.internal.org.objectweb.asm.Opcodes;
 import lombok.extern.log4j.Log4j2;
 import net.alterorb.deobfuscator.DeobfuscationContext;
 import net.alterorb.deobfuscator.transformer.Transformer;
+import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.JumpInsnNode;
 import org.objectweb.asm.tree.MethodNode;

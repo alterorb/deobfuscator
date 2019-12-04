@@ -3,7 +3,7 @@ package net.alterorb.deobfuscator.transformer.impl;
 import net.alterorb.betterasm.ClassNode;
 import net.alterorb.deobfuscator.DeobfuscationContext;
 import net.alterorb.deobfuscator.transformer.Transformer;
-import jdk.internal.org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.LdcInsnNode;
 import org.objectweb.asm.tree.MethodNode;
